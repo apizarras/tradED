@@ -8,7 +8,15 @@ const mongoose = require("mongoose");
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/userData";
 
 // Connect to the Mongo DB
-mongoose.connect(MONGODB_URI);
+mongoose.connect(MONGODB_URI, {
+  useNewUrlParser: true,
+  useCreateIndex: true })
+  .then(() => console.log("MongoDB connected"))
+  .catch(err => console.log(err))
+
+  // Use Routes
+app.use('/api/users', require('./routes/api/users'));
+app.use('/api/auth', require('./routes/api/auth'));
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
