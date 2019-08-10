@@ -29,5 +29,8 @@ module.exports = {
 
 
         
+    },
+    saveCompanies: (req, res) => {
+        const Company = new db.Company;
     }
 };
