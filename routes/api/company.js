@@ -6,8 +6,8 @@ const router = require("express").Router();
 const companyController = require("../../controllers/companyController")
 
 router.route("/")
-
-
+.get(companyController.getCompanies)
+.post(companyController.saveCompanies)
 // router.post("/", (req, res) => {
 //     companyController.saveAll();
 
