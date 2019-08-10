@@ -21,6 +21,7 @@ import { mainListItems, secondaryListItems } from './listItems';
 //import Chart from './Chart';
 //import Deposits from './Deposits';
 //import Orders from './Orders';
+import ApexChart from "../Apexcharts/Apexcharts";
 
 
 const drawerWidth = 240;
@@ -160,16 +161,21 @@ export default function Dashboard() {
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>
           <Grid container spacing={3}>
-            {/* Chart */}
-            <Grid item xs={12} md={8} lg={9}>
+            {/* ApexChart */}
+            <Grid item xs={12} md={4} lg={4}>
               <Paper className={fixedHeightPaper}>
-                {/* <Chart /> */}
+                <ApexChart  />
               </Paper>
             </Grid>
             {/* Recent Deposits */}
-            <Grid item xs={12} md={4} lg={3}>
+            <Grid item xs={12} md={4} lg={4}>
               <Paper className={fixedHeightPaper}>
-                {/* <Deposits /> */}
+                <ApexChart />
+              </Paper>
+            </Grid>
+            <Grid item xs={12} md={4} lg={4}>
+              <Paper className={fixedHeightPaper}>
+                <ApexChart />
               </Paper>
             </Grid>
             {/* Recent Orders */}

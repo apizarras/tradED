@@ -4,7 +4,7 @@ import React, { Component } from "react";
 import Chart from "react-apexcharts";
 // Package to interact with ALpha API
 var Alpha = require("alpha_vantage_api_wrapper").Alpha;
-var alpha = new Alpha(alphaKEY);
+var alpha = new Alpha(process.env.alphaKEY);
 
 class Stockchart extends Component {
   constructor(props) {
@@ -14,8 +14,8 @@ class Stockchart extends Component {
       options: {
         chart: {
           id: "basic-line",
-          height: 400,
-          width: "80%",
+          height: 190,
+          width: "100%",
           stacked: false,
           zoom: {
             enabled: true,
