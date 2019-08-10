@@ -4,17 +4,21 @@ const PORT = process.env.PORT || 3001;
 const app = express();
 const mongoose = require("mongoose");
 
+// Bodyparser Middleware
+app.use(express.json());
+
 // If deployed, use the deployed database. Otherwise use the local mongoHeadlines database
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/userData";
 
 // Connect to the Mongo DB
 mongoose.connect(MONGODB_URI, {
   useNewUrlParser: true,
-  useCreateIndex: true })
+  useCreateIndex: true
+})
   .then(() => console.log("MongoDB connected"))
   .catch(err => console.log(err))
 
-  // Use Routes
+// Use Routes
 app.use('/api/users', require('./routes/api/users'));
 app.use('/api/auth', require('./routes/api/auth'));
 app.use('/api/companies', require('./routes/api/company'));
@@ -29,7 +33,7 @@ if (process.env.NODE_ENV === "production") {
 
 // Send every request to the React app
 // Define any API routes before this runs
-app.get("*", function(req, res) {
+app.get("*", function (req, res) {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
 

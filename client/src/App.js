@@ -1,11 +1,20 @@
 import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import SignIn from './components/SignIn/SignIn';
+import logo from './assets/img/stock-chart-logoSM.jpg';
+import Dashboard from './components/Dashboard/Dashboard';
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      
-    </div>
+    <Router>
+      <div>
+        <Switch>
+          <Route exact path="/" component={SignIn} />
+          <Route exact path="/dashboard" component={Dashboard} />
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
