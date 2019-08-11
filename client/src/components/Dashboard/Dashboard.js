@@ -190,7 +190,7 @@ export default function Dashboard() {
             </Grid>
           </Grid>
         </Container>
-      {/* <CompanyButton onClick={}>Update Company</CompanyButton> */}
+
       </main>
 
     </div>
