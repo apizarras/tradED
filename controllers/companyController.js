@@ -25,12 +25,12 @@ module.exports = {
     }).then(data => 
         res.json(data)
         )
-        .catch(err => console.log(err))
-
-
-        
+        .catch(err => console.log(err))  
     },
     saveCompanies: (req, res) => {
-        const Company = new db.Company;
+        db.Company.create(req.body);
+        console.log("this is the body of save companies" + req.body)
+        .then(dbCompany => res.json(dbCompany))
+        .catch(err => res.status(422).json(err));
     }
 };
