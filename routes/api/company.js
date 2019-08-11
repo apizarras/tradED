@@ -7,7 +7,7 @@ const companyController = require("../../controllers/companyController")
 
 router.route("/")
 .get(companyController.getCompanies)
-.post(companyController.saveCompanies)
+.post(companyController.create)
 // router.post("/", (req, res) => {
 //     companyController.saveAll();
 

@@ -16,28 +16,9 @@ class Stockchart extends Component {
       options: {
         chart: {
           id: "basic-line",
-          height: 190,
-          width: "100%",
-          stacked: false,
-          zoom: {
-            enabled: true,
-            type: "x",
-            autoScaleYaxis: false,
-            zoomedArea: {
-              fill: {
-                color: "#90CAF9",
-                opacity: 0.4
-              },
-              stroke: {
-                color: "#0D47A1",
-                opacity: 0.4,
-                width: 1
-              }
-            }
-          },
-          toolbar: {
-            autoSelected: "zoom"
-          }
+          height: 175,
+          width: "95%",
+          stacked: false
         },
         xaxis: {
           type: "categories",
@@ -55,8 +36,7 @@ class Stockchart extends Component {
             offsetX: 0,
             offsetY: 0
           },
-          // type: 'datetime',
-          // tickAmount: 20,
+          
           categories: []
         }
       },
@@ -65,7 +45,8 @@ class Stockchart extends Component {
           name: "Price",
           data: []
         }
-      ]
+      ],
+      Symbol: props.Symbol
     };
   }
 
@@ -73,7 +54,7 @@ class Stockchart extends Component {
     const self = this;
 
     alpha.stocks
-      .intraday("MSFT")
+      .intraday(this.state.Symbol)
       .then(response => {
         // Do what you want with the data
         console.log(response);
