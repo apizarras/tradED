@@ -22,6 +22,7 @@ import { mainListItems, secondaryListItems } from './listItems';
 //import Deposits from './Deposits';
 //import Orders from './Orders';
 import ApexChart from "../Apexcharts/Apexcharts";
+import CompanyButton from '../button/Button';
 
 
 const drawerWidth = 240;
@@ -105,6 +106,9 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
+//change this to a class component to use state
+//include methods to get and save companies
+
 export default function Dashboard() {
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
@@ -186,7 +190,9 @@ export default function Dashboard() {
             </Grid>
           </Grid>
         </Container>
+
       </main>
+
     </div>
   );
 }
