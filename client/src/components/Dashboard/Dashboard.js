@@ -22,6 +22,7 @@ import { mainListItems, secondaryListItems } from './listItems';
 //import Deposits from './Deposits';
 //import Orders from './Orders';
 import ApexChart from "../Apexcharts/Apexcharts";
+import { userInfo } from 'os';
 
 
 const drawerWidth = 240;
@@ -105,17 +106,20 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function Dashboard() {
-  const classes = useStyles();
-  const [open, setOpen] = React.useState(true);
-  const handleDrawerOpen = () => {
-    setOpen(true);
-  };
-  const handleDrawerClose = () => {
-    setOpen(false);
-  };
-  const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
+const classes = useStyles();
+const [open, setOpen] = React.useState(true);
+const handleDrawerOpen = () => {
+  setOpen(true);
+};
+const handleDrawerClose = () => {
+  setOpen(false);
+};
+const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
+
+class Dashboard extends React.Component {
+ 
+render() {
   return (
     <div className={classes.root}>
       <CssBaseline />
@@ -164,18 +168,18 @@ export default function Dashboard() {
             {/* ApexChart */}
             <Grid item xs={12} md={4} lg={4}>
               <Paper className={fixedHeightPaper}>
-                <ApexChart />
+                <ApexChart Symbol={User.tickerSymbols[0]}/>
               </Paper>
             </Grid>
             {/* Recent Deposits */}
             <Grid item xs={12} md={4} lg={4}>
               <Paper className={fixedHeightPaper}>
-                <ApexChart />
+                <ApexChart Symbol={User.tickerSymbols[1]} />
               </Paper>
             </Grid>
             <Grid item xs={12} md={4} lg={4}>
               <Paper className={fixedHeightPaper}>
-                <ApexChart />
+                <ApexChart Symbol={User.tickerSymbols[2]} />
               </Paper>
             </Grid>
             {/* Recent Orders */}
@@ -190,3 +194,7 @@ export default function Dashboard() {
     </div>
   );
 }
+  
+}
+
+export default Dashboard;
