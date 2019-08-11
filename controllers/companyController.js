@@ -17,5 +17,4 @@ module.exports = {
         console.log("this is the body of save companies" + req.body)
         .then(dbCompany => res.json(dbCompany))
         .catch(err => res.status(422).json(err));
-    }
 };
