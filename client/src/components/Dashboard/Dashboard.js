@@ -9,11 +9,11 @@ import List from '@material-ui/core/List';
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
-import Badge from '@material-ui/core/Badge';
+// import Badge from '@material-ui/core/Badge';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
-import Link from '@material-ui/core/Link';
+// import Link from '@material-ui/core/Link';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import NotificationsIcon from '@material-ui/icons/Notifications';
@@ -22,7 +22,6 @@ import { mainListItems, secondaryListItems } from './listItems';
 //import Deposits from './Deposits';
 //import Orders from './Orders';
 import ApexChart from "../Apexcharts/Apexcharts";
-import { userInfo } from 'os';
 
 
 const drawerWidth = 240;
@@ -106,20 +105,17 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const classes = useStyles();
-const [open, setOpen] = React.useState(true);
-const handleDrawerOpen = () => {
-  setOpen(true);
-};
-const handleDrawerClose = () => {
-  setOpen(false);
-};
-const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
+export default function Dashboard() {
+  const classes = useStyles();
+  const [open, setOpen] = React.useState(true);
+  const handleDrawerOpen = () => {
+    setOpen(true);
+  };
+  const handleDrawerClose = () => {
+    setOpen(false);
+  };
+  const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
-
-class Dashboard extends React.Component {
- 
-render() {
   return (
     <div className={classes.root}>
       <CssBaseline />
@@ -168,18 +164,18 @@ render() {
             {/* ApexChart */}
             <Grid item xs={12} md={4} lg={4}>
               <Paper className={fixedHeightPaper}>
-                <ApexChart Symbol={User.tickerSymbols[0]}/>
+                <ApexChart />
               </Paper>
             </Grid>
             {/* Recent Deposits */}
             <Grid item xs={12} md={4} lg={4}>
               <Paper className={fixedHeightPaper}>
-                <ApexChart Symbol={User.tickerSymbols[1]} />
+                <ApexChart />
               </Paper>
             </Grid>
             <Grid item xs={12} md={4} lg={4}>
               <Paper className={fixedHeightPaper}>
-                <ApexChart Symbol={User.tickerSymbols[2]} />
+                <ApexChart />
               </Paper>
             </Grid>
             {/* Recent Orders */}
@@ -194,7 +190,3 @@ render() {
     </div>
   );
 }
-  
-}
-
-export default Dashboard;
