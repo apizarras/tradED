@@ -168,18 +168,18 @@ export default function Dashboard() {
             {/* ApexChart */}
             <Grid item xs={12} md={4} lg={4}>
               <Paper className={fixedHeightPaper}>
-                <ApexChart />
+                <ApexChart Symbol="MSFT" />
               </Paper>
             </Grid>
             {/* Recent Deposits */}
             <Grid item xs={12} md={4} lg={4}>
               <Paper className={fixedHeightPaper}>
-                <ApexChart />
+                <ApexChart Symbol="CRON" />
               </Paper>
             </Grid>
             <Grid item xs={12} md={4} lg={4}>
               <Paper className={fixedHeightPaper}>
-                <ApexChart />
+                <ApexChart Symbol="AAPL" />
               </Paper>
             </Grid>
             {/* Recent Orders */}

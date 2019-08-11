@@ -45,15 +45,16 @@ class Stockchart extends Component {
           name: "Price",
           data: []
         }
-      ]
+      ],
+      Symbol: props.Symbol
     };
   }
 
-  componentDidMount(props) {
+  componentDidMount() {
     const self = this;
 
     alpha.stocks
-      .intraday(props.Symbol)
+      .intraday(this.state.Symbol)
       .then(response => {
         // Do what you want with the data
         console.log(response);

@@ -8,6 +8,21 @@ class Main extends Component {
         query: ""
     };
 
+    getCompanies = () => {
+        API.getCompanies(this.state.query)
+          .then(res =>
+            this.setState({
+              companies: res.data
+            })
+          )
+          .catch(() =>
+            this.setState({
+              companies: [],
+              message: "nothing found"
+            })
+          );
+      };
+
     handleCompanyUpdateSubmit = event => {
         // event.preventDefault();
         this.getCompanies();
