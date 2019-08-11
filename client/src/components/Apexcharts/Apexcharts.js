@@ -2,9 +2,11 @@ import React, { Component } from "react";
 // import "./App.css";
 // import ApexCharts from 'apexcharts'
 import Chart from "react-apexcharts";
+require("dotenv").config()
+
 // Package to interact with ALpha API
 var Alpha = require("alpha_vantage_api_wrapper").Alpha;
-var alpha = new Alpha(process.env.alphaKEY);
+var alpha = new Alpha("process.env.alphaKEY");
 
 class Stockchart extends Component {
   constructor(props) {
