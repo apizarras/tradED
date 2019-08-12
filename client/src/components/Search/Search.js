@@ -14,6 +14,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import PageviewIcon from '@material-ui/icons/Pageview';
 import { pink } from '@material-ui/core/colors';
+import Input from '@material-ui/core/Input';
 
 const useStyles = makeStyles(theme => ({
   '@global': {
@@ -40,7 +41,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function SignIn() {
+export default function Search({ q, handleInputChange, handleSearchFormSubmit }) {
   const classes = useStyles();
 
   return (
@@ -54,14 +55,17 @@ export default function SignIn() {
           Search
         </Typography>
         <form className={classes.form} noValidate>
-          <TextField
+          <Input
             variant="outlined"
             margin="normal"
             required
             fullWidth
-            id="email"
+            id="CompanyName"
+            type="text"
             label="Company Name Search"
-            name="search"
+            name="q"
+            value={q}
+            onChange={handleInputChange}
             autoFocus
           />
           <Button
@@ -70,6 +74,7 @@ export default function SignIn() {
             variant="contained"
             color="primary"
             className={classes.submit}
+            onClick={handleSearchFormSubmit}
           >
             Search
           </Button>
