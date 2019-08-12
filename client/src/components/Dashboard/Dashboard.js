@@ -23,6 +23,7 @@ import { mainListItems, secondaryListItems } from './listItems';
 //import Orders from './Orders';
 import ApexChart from "../Apexcharts/Apexcharts";
 import CompanyButton from '../button/Button';
+import API from "../../utils/API";
 
 
 const drawerWidth = 240;

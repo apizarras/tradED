@@ -7,7 +7,7 @@ export default {
 
     getCompanies:(req, res) => {
 
-        axios.get('https://cloud.iexapis.com/beta/ref-data/symbols?token=' + apiToken).then( response => {
+        axios.get('https://cloud.iexapis.com/beta/ref-data/symbols?token=sk_a4bd344b1ddf4132aa2b0603f350c4a1').then( response => {
         const goodDataArr = response.data;
 
     
