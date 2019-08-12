@@ -25,11 +25,8 @@ import Card from "../companyCard/card"
 import GridList from '@material-ui/core/GridList';
 import { GridListTile } from '@material-ui/core';
 import logo from "../../assets/img/stock-chart-logoSM.jpg";
-<<<<<<< HEAD
 import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
-=======
->>>>>>> 6e2f7bb4f1ba2cfbebdff3d14cb8ce043a061aa5
 
 
 
