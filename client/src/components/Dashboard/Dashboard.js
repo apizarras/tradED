@@ -24,8 +24,14 @@ import { mainListItems, secondaryListItems } from './listItems';
 import ApexChart from "../Apexcharts/Apexcharts";
 import CompanyButton from '../button/Button';
 import API from "../../utils/API";
+
+import Card from "../companyCard/card"
+import GridList from '@material-ui/core/GridList';
+import { GridListTile } from '@material-ui/core';
+
 import logo from "../../assets/img/stock-chart-logoSM.jpg";
 import Box from '@material-ui/core/Box';
+
 
 
 const drawerWidth = 240;
@@ -183,11 +189,24 @@ export default function Dashboard() {
                 <ApexChart Symbol="AAPL" />
               </Paper>
             </Grid>
-            {/* Recent Orders */}
-            <Grid item xs={12}>
-              <Paper className={classes.paper}>
-                {/* <Orders /> */}
-              </Paper>
+            {/* This is where the card div starts */}
+            <Grid item  xs>
+              {/* <Paper className={classes.paper}> */}
+              <GridList  cols={4} xs={12} md={12} lg={12}>
+              <GridListTile spacing={3} item xs={3} md={3} lg={3}>
+              <Card Name="Walt Disney Co" Symbol="DIS"/> 
+              </GridListTile>
+              <GridListTile spacing={3}item xs={3} md={3} lg={3}>
+              <Card Name="Amazon.com, Inc." Symbol="AMZN"/> 
+              </GridListTile>
+              <GridListTile spacing={3} item xs={3} md={3} lg={3}>
+              <Card Name="Exxon Mobil Corporation" Symbol="XOM"/> 
+              </GridListTile>
+              <GridListTile spacing={3} item xs={3} md={3} lg={3}>
+              <Card Name="The Coca-Cola Co" Symbol="KO"/> 
+              </GridListTile>
+               </GridList>
+              {/* </Paper> */}
             </Grid>
           </Grid>
         </Container>
