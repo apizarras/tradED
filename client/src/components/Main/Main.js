@@ -5,11 +5,12 @@ import API from "../../utils/API";
 
 class Main extends Component {
     state = {
-        query: ""
+        query: "",
+        stockArr: []
     };
 
     getCompanies = () => {
-        API.getCompanies(this.state.query)
+        API.getCompanies(this.state.stockArr)
           .then(res =>
             this.setState({
               companies: res.data
@@ -32,7 +33,8 @@ class Main extends Component {
         return (
             <div>
             <Dashboard />
-            <CompanyButton onClick={this.handleCompanyUpdateSubmit()}>Update Company</CompanyButton>
+            <CompanyButton
+              handleCompanyUpdateSubmit={this.handleCompanyUpdateSubmit} />
             </div>
         );
     };

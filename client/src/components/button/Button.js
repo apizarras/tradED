@@ -8,7 +8,7 @@ const useStyles = makeStyles(theme => ({
     },
   }));
 
-export default function CompanyButton() {
+export default function CompanyButton({ handleCompanyUpdateSubmit }) {
     const classes = useStyles();
     return (
         <Button
@@ -17,6 +17,7 @@ export default function CompanyButton() {
         variant="contained"
         color="primary"
         className={classes.submit}
+        onClick={handleCompanyUpdateSubmit}
       >
         Update Companies
         </Button>
