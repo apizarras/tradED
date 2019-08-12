@@ -5,7 +5,7 @@ import API from "../../utils/API";
 
 class Main extends Component {
     state = {
-        query: "",
+        q: "",
         stockArr: []
     };
 
@@ -25,7 +25,7 @@ class Main extends Component {
       };
 
     handleCompanyUpdateSubmit = event => {
-        // event.preventDefault();
+        event.preventDefault();
         this.getCompanies();
       };
 
