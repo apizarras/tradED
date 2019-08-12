@@ -76,6 +76,7 @@ export default function Search({ q, handleInputChange, handleSearchFormSubmit })
             className={classes.submit}
             onClick={handleSearchFormSubmit}
           >
+            { console.log("registering the click?")}
             Search
           </Button>
           <Grid container>
