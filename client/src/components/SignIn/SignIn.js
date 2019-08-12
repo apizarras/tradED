@@ -13,18 +13,8 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 
+import Dashboard from "../Dashboard/Dashboard";
 //template from material-ui
-// function MadeWithLove() {
-//   return (
-//     <Typography variant="body2" color="textSecondary" align="center">
-//       {'Built with love by the '}
-//       <Link color="inherit" href="https://material-ui.com/">
-//         Material-UI
-//       </Link>
-//       {' team.'}
-//     </Typography>
-//   );
-// }
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -98,6 +88,7 @@ export default function SignInSide() {
               label="Remember me"
             />
             <Button
+              href="/dashboard"
               type="submit"
               fullWidth
               variant="contained"
