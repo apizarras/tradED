@@ -24,6 +24,7 @@ import { mainListItems, secondaryListItems } from './listItems';
 import ApexChart from "../Apexcharts/Apexcharts";
 import CompanyButton from '../button/Button';
 import API from "../../utils/API";
+import Card from "../companyCard/card"
 
 
 const drawerWidth = 240;
@@ -186,7 +187,7 @@ export default function Dashboard() {
             {/* Recent Orders */}
             <Grid item xs={12}>
               <Paper className={classes.paper}>
-                {/* <Orders /> */}
+               <Card/> 
               </Paper>
             </Grid>
           </Grid>
