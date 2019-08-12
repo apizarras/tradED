@@ -25,6 +25,8 @@ import Card from "../companyCard/card"
 import GridList from '@material-ui/core/GridList';
 import { GridListTile } from '@material-ui/core';
 import logo from "../../assets/img/stock-chart-logoSM.jpg";
+import Box from '@material-ui/core/Box';
+import Button from '@material-ui/core/Button';
 
 
 
@@ -105,8 +107,14 @@ const useStyles = makeStyles(theme => ({
     flexDirection: 'column',
   },
   fixedHeight: {
-    height: 240,
+    height: 300,
   },
+  button: {
+    margin: theme.spacing(1),
+  },
+  input: {
+    display: 'none',
+  }
 }));
 
 //change this to a class component to use state
@@ -170,6 +178,9 @@ export default function Dashboard() {
             <Grid item xs={12} md={4} lg={4}>
               <Paper className={fixedHeightPaper}>
                 <ApexChart Symbol="MSFT" />
+                {/* <Button variant="outlined" color="primary" className={classes.button}>
+                  Open
+               </Button> */}
               </Paper>
             </Grid>
             {/* Recent Deposits */}
