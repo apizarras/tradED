@@ -24,6 +24,8 @@ import { mainListItems, secondaryListItems } from './listItems';
 import ApexChart from "../Apexcharts/Apexcharts";
 import CompanyButton from '../button/Button';
 import API from "../../utils/API";
+import logo from "../../assets/img/stock-chart-logoSM.jpg";
+import Box from '@material-ui/core/Box';
 
 
 const drawerWidth = 240;
@@ -136,12 +138,10 @@ export default function Dashboard() {
             <MenuIcon />
           </IconButton>
           <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
-            Dashboard
+            TradED
           </Typography>
           <IconButton color="inherit">
-
-              <NotificationsIcon />
-
+          <img borderRadius="25%" src={logo} alt="logo" />
           </IconButton>
         </Toolbar>
       </AppBar>
