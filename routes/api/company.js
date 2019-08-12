@@ -9,12 +9,10 @@ const companyDbController = require("../../controllers/companyDbController");
 router.route("/")
 .get(companyController.findAll)
 // .post(companyController.create)
-// router.post("/", (req, res) => {
-//     companyController.saveAll();
-
-// })
 
 router.route("/:id")
 .get(companyDbController.findById);
+
+console.log("company.js file");
 
 module.exports = router;

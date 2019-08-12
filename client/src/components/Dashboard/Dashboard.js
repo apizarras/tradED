@@ -16,21 +16,15 @@ import Paper from '@material-ui/core/Paper';
 // import Link from '@material-ui/core/Link';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import NotificationsIcon from '@material-ui/icons/Notifications';
-import { mainListItems, secondaryListItems } from './listItems';
+import { mainListItems } from './listItems';
 //import Chart from './Chart';
 //import Deposits from './Deposits';
 //import Orders from './Orders';
 import ApexChart from "../Apexcharts/Apexcharts";
-import CompanyButton from '../button/Button';
-import API from "../../utils/API";
-
 import Card from "../companyCard/card"
 import GridList from '@material-ui/core/GridList';
 import { GridListTile } from '@material-ui/core';
-
 import logo from "../../assets/img/stock-chart-logoSM.jpg";
-import Box from '@material-ui/core/Box';
 
 
 
