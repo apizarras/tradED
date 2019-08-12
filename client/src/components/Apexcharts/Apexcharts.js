@@ -38,6 +38,10 @@ class Stockchart extends Component {
           },
           
           categories: []
+        },
+        title: {
+          text: props.Symbol,
+          align: "center"
         }
       },
       series: [
