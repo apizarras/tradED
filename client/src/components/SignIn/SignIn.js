@@ -13,7 +13,6 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 
-import Dashboard from "../Dashboard/Dashboard";
 //template from material-ui
 
 const useStyles = makeStyles(theme => ({
