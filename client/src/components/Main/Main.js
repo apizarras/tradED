@@ -46,11 +46,7 @@ class Main extends Component {
         return (
             <div>
             <Dashboard />
-            <CompanyButton handleCompanyUpdateSubmit={this.handleCompanyUpdateSubmit} />
-            <Search 
-              handleInputChange={this.handleInputChange}
-              handleSearchFormSubmit={this.handleSearchFormSubmit}
-              q={this.state.q} />
+
             </div>
         );
     };
