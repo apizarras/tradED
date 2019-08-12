@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 import Dashboard from "../Dashboard/Dashboard";
 import CompanyButton from "../button/Button";
+import Search from "../Search/Search";
 import API from "../../utils/API";
 
 class Main extends Component {
     state = {
-        query: "",
-        stockArr: []
+        q: "",
+        companies: []
     };
 
     getCompanies = () => {
@@ -24,17 +25,28 @@ class Main extends Component {
           );
       };
 
-    handleCompanyUpdateSubmit = event => {
-        // event.preventDefault();
-        this.getCompanies();
+    // handleCompanyUpdateSubmit = event => {
+    //     event.preventDefault();
+    //     this.getCompanies();
+    //   };
+
+      handleInputChange = event => {
+        const { name, value } = event.target;
+        this.setState({
+          [name]: value
+        });
       };
+
+      handleSearchFormSubmit = event => {
+        event.preventDefault();
+        this.getCompanies();
+      }
 
     render() {
         return (
             <div>
             <Dashboard />
-            <CompanyButton
-              handleCompanyUpdateSubmit={this.handleCompanyUpdateSubmit} />
+
             </div>
         );
     };

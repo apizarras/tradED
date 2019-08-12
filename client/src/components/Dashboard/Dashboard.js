@@ -24,9 +24,13 @@ import { mainListItems, secondaryListItems } from './listItems';
 import ApexChart from "../Apexcharts/Apexcharts";
 import CompanyButton from '../button/Button';
 import API from "../../utils/API";
+
 import Card from "../companyCard/card"
 import GridList from '@material-ui/core/GridList';
 import { GridListTile } from '@material-ui/core';
+
+import logo from "../../assets/img/stock-chart-logoSM.jpg";
+import Box from '@material-ui/core/Box';
 
 
 
@@ -140,12 +144,10 @@ export default function Dashboard() {
             <MenuIcon />
           </IconButton>
           <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
-            Dashboard
+            TradED
           </Typography>
           <IconButton color="inherit">
-
-              <NotificationsIcon />
-
+          <img borderRadius="25%" src={logo} alt="logo" />
           </IconButton>
         </Toolbar>
       </AppBar>
@@ -164,7 +166,7 @@ export default function Dashboard() {
         <Divider />
         <List>{mainListItems}</List>
         <Divider />
-        <List>{secondaryListItems}</List>
+
       </Drawer>
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />

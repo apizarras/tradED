@@ -4,67 +4,55 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import ListSubheader from '@material-ui/core/ListSubheader';
 import DashboardIcon from '@material-ui/icons/Dashboard';
-import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import LoyaltyIcon from '@material-ui/icons/Loyalty';
+import SearchIcon from '@material-ui/icons/Search';
 import PeopleIcon from '@material-ui/icons/People';
 import BarChartIcon from '@material-ui/icons/BarChart';
 import LayersIcon from '@material-ui/icons/Layers';
 import AssignmentIcon from '@material-ui/icons/Assignment';
+import Dashboard from './Dashboard';
+import CompanyButton from '../button/Button';
+import Definitions from '../Definitions/Definitions';
+import { Link } from 'react-router-dom';
 
 export const mainListItems = (
   <div>
-    <ListItem button>
+    <ListItem button href={Dashboard}>
       <ListItemIcon>
         <DashboardIcon />
       </ListItemIcon>
-      <ListItemText primary="Dashboard" />
+      <Link to="/dashboard">Dashboard</Link>
     </ListItem>
-    <ListItem button>
+    <ListItem>
       <ListItemIcon>
-        <ShoppingCartIcon />
+        <LoyaltyIcon />
       </ListItemIcon>
-      <ListItemText primary="Orders" />
+      <Link to="/search">Manage Favorites</Link>
     </ListItem>
     <ListItem button>
       <ListItemIcon>
         <PeopleIcon />
       </ListItemIcon>
-      <ListItemText primary="Customers" />
+      <Link to="/profile">Profile</Link>
     </ListItem>
     <ListItem button>
       <ListItemIcon>
-        <BarChartIcon />
+        <SearchIcon />
       </ListItemIcon>
-      <ListItemText primary="Reports" />
+      <Link to="/search">Search</Link>
     </ListItem>
     <ListItem button>
       <ListItemIcon>
         <LayersIcon />
       </ListItemIcon>
-      <ListItemText primary="Integrations" />
-    </ListItem>
-  </div>
-);
-
-export const secondaryListItems = (
-  <div>
-    <ListSubheader inset>Saved reports</ListSubheader>
-    <ListItem button>
-      <ListItemIcon>
-        <AssignmentIcon />
-      </ListItemIcon>
-      <ListItemText primary="Current month" />
+      <Link to="/">Logout</Link>
     </ListItem>
     <ListItem button>
       <ListItemIcon>
-        <AssignmentIcon />
+        <LayersIcon />
       </ListItemIcon>
-      <ListItemText primary="Last quarter" />
+      <Link to="/definitions">Definitions</Link>
     </ListItem>
-    <ListItem button>
-      <ListItemIcon>
-        <AssignmentIcon />
-      </ListItemIcon>
-      <ListItemText primary="Year-end sale" />
-    </ListItem>
+    <CompanyButton />
   </div>
 );
