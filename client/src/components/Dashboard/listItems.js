@@ -11,6 +11,7 @@ import BarChartIcon from '@material-ui/icons/BarChart';
 import LayersIcon from '@material-ui/icons/Layers';
 import AssignmentIcon from '@material-ui/icons/Assignment';
 import Dashboard from './Dashboard';
+import { Link } from 'react-router-dom';
 
 export const mainListItems = (
   <div>
@@ -20,29 +21,29 @@ export const mainListItems = (
       </ListItemIcon>
       <ListItemText primary="Dashboard" />
     </ListItem>
-    <ListItem button>
+    <ListItem>
       <ListItemIcon>
         <LoyaltyIcon />
       </ListItemIcon>
-      <ListItemText primary="Manage Favorites" />
+      <Link to="/search">Manage Favorites</Link>
     </ListItem>
     <ListItem button>
       <ListItemIcon>
         <PeopleIcon />
       </ListItemIcon>
-      <ListItemText primary="Profile" />
+      <Link to="/profile">Profile</Link>
     </ListItem>
     <ListItem button>
       <ListItemIcon>
         <SearchIcon />
       </ListItemIcon>
-      <ListItemText primary="Search" />
+      <Link to="/search">Search</Link>
     </ListItem>
     <ListItem button>
       <ListItemIcon>
         <LayersIcon />
       </ListItemIcon>
-      <ListItemText primary="Logout" />
+      <Link to="/">Logout</Link>
     </ListItem>
   </div>
 );
