@@ -3,8 +3,9 @@ const db = require("../models");
 // Defining methods for the bookController
 module.exports = {
   findById: function(req, res) {
-    db.Book.findById(req.params.id)
-      .then(dbBook => res.json(dbBook))
+    console.log("db.Company" + db.Company);
+    db.traded.findById(req.params.id)
+      .then(dbCompany => res.json(dbCompany))
       .catch(err => res.status(422).json(err));
   },
 //   create: function(req, res) {

@@ -4,12 +4,12 @@ import axios from "axios";
 // const apiToken = process.env.apiToken;
 
 export default {
-    //get companies from the stock api
+    //get companies
     getCompanies: function(q) {
-        return axios.get("/api/company");
+        return axios.get("/api/company", { params: {q: "name:" + q}});
     },
     //save all companies and symbols
     saveCompanies: function(companyData) {
         return axios.post("/api/company", companyData);
-    }
+    },
 }
