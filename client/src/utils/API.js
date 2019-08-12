@@ -1,6 +1,6 @@
 import axios from "axios";
 require("dotenv").config();
-const db = require("../");
+//const db = require("../");
 const apiToken = process.env.apiToken;
 
 export default {
@@ -32,7 +32,7 @@ export default {
     //get all saved companies and symbols
    
     //save all companies and symbols
-    saveCompanies: function(data) {
-        return axios.post("../../routes/api/companies", data);
+    saveCompanies: function(companyData) {
+        return axios.post("../../routes/api/company", companyData);
     }
 }
