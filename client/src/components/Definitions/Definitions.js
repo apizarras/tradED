@@ -1,5 +1,5 @@
 import React from 'react';
-import Link from '@material-ui/core/Link';
+// import Link from '@material-ui/core/Link';
 import { makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -7,18 +7,29 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Title from '../Title/Title';
+import Dashboard from '../Dashboard/Dashboard';
+import ListItem from '@material-ui/core/ListItem';
+import { Link } from 'react-router-dom';
+import logo from "../../assets/img/stock-chart-logoSM.jpg";
+import IconButton from '@material-ui/core/IconButton';
 
 // Generate Order Data
-function createData(id, date, name, shipTo, paymentMethod, amount) {
-  return { id, date, name, shipTo, paymentMethod, amount };
+function createData(id, term, definition) {
+  return { id, term, definition };
 }
 
 const rows = [
-  createData(0, '16 Mar, 2019', 'Elvis Presley', 'Tupelo, MS', 'VISA ⠀•••• 3719', 312.44),
-  createData(1, '16 Mar, 2019', 'Paul McCartney', 'London, UK', 'VISA ⠀•••• 2574', 866.99),
-  createData(2, '16 Mar, 2019', 'Tom Scholz', 'Boston, MA', 'MC ⠀•••• 1253', 100.81),
-  createData(3, '16 Mar, 2019', 'Michael Jackson', 'Gary, IN', 'AMEX ⠀•••• 2000', 654.39),
-  createData(4, '15 Mar, 2019', 'Bruce Springsteen', 'Long Branch, NJ', 'VISA ⠀•••• 5919', 212.79),
+  createData(0, 'Bear Market', 'Stock market trending downward'),
+  createData(1, 'Blue Chip Stock', 'Stocks behind large, industry-leading companies'),
+  createData(2, 'Bull Market', 'Stock market trending upwards'),
+  createData(3, 'Dividend', "A portion of a company's earnings that is paid to shareholders"),
+  createData(4, 'Index', 'A benchmark that is used as a reference marker for traders and portolio managers'),
+  createData(5, 'Initial Public Offering (IPO)', 'The first sale or offering of a stock by a company to the public'),
+  createData(6, 'Pink Sheet Stocks', 'Commonly known as "Penny Stocks", which are traded at $5 per share or less'),
+  createData(7, 'Rally', 'A rapid increase in the price level of the market or stock'),
+  createData(8, 'Sector', 'A group of stocks in the same industry'),
+  createData(9, 'Short Selling', 'When borrowing shares from someone else, with the promise to return them later'),
+  createData(10, 'Volume', 'The number of shares of stock traded during a particular time period')
 ];
 
 const useStyles = makeStyles(theme => ({
@@ -32,32 +43,35 @@ export default function Definitions() {
   return (
     <React.Fragment>
       <Title>Common Terms Defined</Title>
+      <IconButton color="inherit">
+        <img src={logo} alt="logo" align="right" />
+      </IconButton>
       <Table size="small">
         <TableHead>
           <TableRow>
             <TableCell>Term</TableCell>
             <TableCell>Definition</TableCell>
-            <TableCell>???</TableCell>
-            <TableCell>???</TableCell>
-            <TableCell align="right">???</TableCell>
+            <TableCell align="right"></TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {rows.map(row => (
             <TableRow key={row.id}>
-              <TableCell>{row.date}</TableCell>
-              <TableCell>{row.name}</TableCell>
-              <TableCell>{row.shipTo}</TableCell>
-              <TableCell>{row.paymentMethod}</TableCell>
+              <TableCell>{row.term}</TableCell>
+              <TableCell>{row.definition}</TableCell>
+              {/* <TableCell>{row.shipTo}</TableCell>
+              <TableCell>{row.paymentMethod}</TableCell> */}
               <TableCell align="right">{row.amount}</TableCell>
             </TableRow>
           ))}
         </TableBody>
       </Table>
       <div className={classes.seeMore}>
-        <Link to="/dashboard" color="primary">
-          Return to Dashboard
-        </Link>
+        <ListItem button>
+          <Link to="/dashboard" color="primary">
+            Return to Dashboard
+          </Link>
+        </ListItem>
       </div>
     </React.Fragment>
   );
