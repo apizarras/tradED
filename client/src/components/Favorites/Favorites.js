@@ -93,7 +93,7 @@ const tiers = [
   },
 ];
 
-export default function Pricing() {
+export default function Favorites() {
   const classes = useStyles();
 
   return (
