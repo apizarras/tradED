@@ -22,7 +22,7 @@ export const mainListItems = (
       <ListItemIcon>
         <LoyaltyIcon />
       </ListItemIcon>
-      <Link to="/search">Manage Favorites</Link>
+      <Link to="/favorites">Manage Favorites</Link>
     </ListItem>
     <ListItem button>
       <ListItemIcon>
