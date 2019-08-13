@@ -6,6 +6,19 @@ const router = require("express").Router();
 const companyController = require("../../controllers/companyController");
 const companyDbController = require("../../controllers/companyDbController");
 
+
+router.route('/search').get((req, res) => {
+    db.find()
+    .then(companies => console.log(companies))
+    .catch(err => console.log('Error' + err));
+});
+
+// router.route('/:id').get((req, res) => {
+//     db.findById(req.params.id)
+//     .then(company => res.json(company))
+//     .catch(err => res.status(400).json(err));
+// });
+
 router.route("/")
 .get(companyController.findAll)
 // .post(companyController.create)

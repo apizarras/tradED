@@ -2,6 +2,12 @@ import React, { Component } from "react";
 import Search from "./Search";
 import API from "../../utils/API";
 
+const Company = props => (
+  <tr>
+    <td>{props.company.name}</td>
+    <td>{props.company.symbol}</td>
+  </tr>
+)
 class SearchHome extends Component {
     state={
         q: "",

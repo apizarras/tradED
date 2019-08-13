@@ -4,7 +4,7 @@ const db = require("../models");
 module.exports = {
   findById: function(req, res) {
     console.log("db.Company" + db.Company);
-    db.traded.findById(req.params.id)
+    db.Company.findById(req.params.id)
       .then(dbCompany => res.json(dbCompany))
       .catch(err => res.status(422).json(err));
   },
