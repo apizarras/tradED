@@ -25,8 +25,7 @@ app.use('/api/company', require('./routes/api/company'));
 
 
 // Serve up static assets (usually on heroku)
-
-  app.use(express.static("client/build"));
+app.use(express.static(path.join(__dirname, 'build')));
 
 
 // Send every request to the React app
