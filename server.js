@@ -21,9 +21,7 @@ mongoose.connect(MONGODB_URI, {
 // Use Routes
 app.use('/api/users', require('./routes/api/users'));
 app.use('/api/auth', require('./routes/api/auth'));
-app.use('/api/companies', require('./routes/api/company'));
-
-
+app.use('/api/company', require('./routes/api/company'));
 
 
 // Serve up static assets (usually on heroku)
