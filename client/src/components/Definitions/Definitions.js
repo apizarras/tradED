@@ -12,7 +12,7 @@ import ListItem from '@material-ui/core/ListItem';
 import { Link } from 'react-router-dom';
 import logo from "../../assets/img/stock-chart-logoSM.jpg";
 import IconButton from '@material-ui/core/IconButton';
-
+import "./Definitions.css";
 // Generate Order Data
 function createData(id, term, definition) {
   return { id, term, definition };
@@ -42,10 +42,10 @@ export default function Definitions() {
   const classes = useStyles();
   return (
     <React.Fragment>
-      <Title>Common Terms Defined</Title>
-      <IconButton color="inherit">
-        <img src={logo} alt="logo" align="right" />
-      </IconButton>
+      <Title className="terms">Common Terms Defined</Title>
+      {/* <IconButton color="inherit"> */}
+      <img src={logo} alt="logo" className="logo" />
+      {/* </IconButton> */}
       <Table size="small">
         <TableHead>
           <TableRow>
