@@ -149,7 +149,7 @@ export default function Dashboard() {
             TradED
           </Typography>
           <IconButton color="inherit">
-          <img borderRadius="25%" src={logo} alt="logo" />
+          <img borderradius="25%" src={logo} alt="logo" />
           </IconButton>
         </Toolbar>
       </AppBar>
