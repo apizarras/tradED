@@ -3,7 +3,7 @@ const axios = require("axios");
 const db = require("../models/companiesData");
 const apiToken = process.env.apiToken;
 
-//should contain the db calls
+//get all companies and symbols from api
 module.exports = {
 
     findAll:(req, res) => {

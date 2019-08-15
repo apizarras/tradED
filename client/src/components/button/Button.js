@@ -15,7 +15,7 @@ export default function CompanyButton({ handleCompanyUpdateSubmit }) {
         type="submit"
         fullWidth
         variant="contained"
-        color="primary"
+        color="black"
         className={classes.submit}
         onClick={handleCompanyUpdateSubmit}
       >

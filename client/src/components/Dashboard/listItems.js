@@ -6,48 +6,53 @@ import LoyaltyIcon from '@material-ui/icons/Loyalty';
 import SearchIcon from '@material-ui/icons/Search';
 import PeopleIcon from '@material-ui/icons/People';
 import LayersIcon from '@material-ui/icons/Layers';
+import CastForEducationIcon from '@material-ui/icons/CastForEducation';
 import Dashboard from './Dashboard';
 import CompanyButton from '../button/Button';
 import { Link } from 'react-router-dom';
+import Style from './style.css';
+
+
 
 export const mainListItems = (
   <div>
-    <ListItem button href={Dashboard}>
+    <ListItem>
       <ListItemIcon>
-        <DashboardIcon />
+        <DashboardIcon className="iconColor" />
       </ListItemIcon>
-      <Link to="/dashboard">Dashboard</Link>
+      <Link  className="linkColor" to="/dashboard">Dashboard</Link>
     </ListItem>
     <ListItem>
       <ListItemIcon>
-        <LoyaltyIcon />
+        <LoyaltyIcon className="iconColor" />
       </ListItemIcon>
-      <Link to="/favorites">Manage Favorites</Link>
+      <Link  className="linkColor" to="/favorites">Manage Favorites</Link>
     </ListItem>
     <ListItem button>
       <ListItemIcon>
-        <PeopleIcon />
+        <PeopleIcon className="iconColor" />
       </ListItemIcon>
-      <Link to="/profile">Profile</Link>
+      <Link  className="linkColor" to="/profile">Profile</Link>
     </ListItem>
     <ListItem button>
       <ListItemIcon>
-        <SearchIcon />
+        <SearchIcon className="iconColor" />
       </ListItemIcon>
-      <Link to="/search">Search</Link>
+      <Link  className="linkColor" to="/search">Search</Link>
     </ListItem>
     <ListItem button>
       <ListItemIcon>
-        <LayersIcon />
+        <LayersIcon className="iconColor" />
       </ListItemIcon>
-      <Link to="/">Logout</Link>
+      <Link  className="linkColor" to="/">Logout</Link>
     </ListItem>
     <ListItem button>
       <ListItemIcon>
-        <LayersIcon />
+        <CastForEducationIcon className="iconColor" />
       </ListItemIcon>
-      <Link to="/definitions">Definitions</Link>
+      <Link  className="linkColor" to="/definitions">Definitions</Link>
     </ListItem>
     <CompanyButton />
   </div>
+
 );

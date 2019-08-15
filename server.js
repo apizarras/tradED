@@ -3,20 +3,39 @@ const path = require("path");
 const PORT = process.env.PORT || 3001;
 const app = express();
 const mongoose = require("mongoose");
+const SeedArray = require("./seed/companies.json");
+const Company = require("./models/companiesData");
 
 // Bodyparser Middleware
 app.use(express.json());
 
 // If deployed, use the deployed database. Otherwise use the local mongoHeadlines database
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/userData";
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/traded";
+
+let counter = 0;
 
 // Connect to the Mongo DB
 mongoose.connect(MONGODB_URI, {
   useNewUrlParser: true,
   useCreateIndex: true
 })
-  .then(() => console.log("MongoDB connected"))
-  .catch(err => console.log(err))
+.then(() => {console.log("MongoDB connected and ready to be seeded")
+    
+SeedArray.forEach((object => {
+  const company = new Company({
+       name: object.name,
+       symbol: object.symbol
+   });
+   company.save((err,result) => {
+      counter++;
+      if (counter === SeedArray.length) {
+          console.log("=========Seeding Completed=========")
+          // disconnectDB()
+      }
+      else {console.log("Company added")}
+   });
+}));
+}).catch(err => console.log(err))
 
 // Use Routes
 app.use('/api/users', require('./routes/api/users'));

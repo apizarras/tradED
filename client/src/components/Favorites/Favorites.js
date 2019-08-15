@@ -14,6 +14,12 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Box from '@material-ui/core/Box';
 import { Link } from 'react-router-dom';
+import clsx from 'clsx';
+import IconButton from '@material-ui/core/IconButton';
+import Paper from '@material-ui/core/Paper';
+import logo from "../../assets/img/tradEDlogo.png";
+import MenuIcon from '@material-ui/icons/Menu';
+import { grey } from '@material-ui/core/colors';
 
 const useStyles = makeStyles(theme => ({
   '@global': {
@@ -42,6 +48,7 @@ const useStyles = makeStyles(theme => ({
   },
   heroContent: {
     padding: theme.spacing(8, 0, 6),
+    marginTop: '10vw'
   },
   cardHeader: {
     backgroundColor: theme.palette.grey[200],
@@ -62,8 +69,105 @@ const useStyles = makeStyles(theme => ({
       paddingBottom: theme.spacing(6),
     },
   },
+  root: {
+    display: 'flex',
+  },
+  toolbar: {
+    paddingRight: 24, // keep right padding when drawer closed
+    backgroundColor: '#AF473C'
+  },
+  toolbarIcon: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'flex-end',
+    padding: '0 8px',
+    ...theme.mixins.toolbar,
+  },
+  appBar: {
+    zIndex: theme.zIndex.drawer + 1,
+    transition: theme.transitions.create(['width', 'margin'], {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.leavingScreen,
+    }),
+  },
+  appBarShift: {
+    marginLeft: drawerWidth,
+    width: `calc(100% - ${drawerWidth}px)`,
+    transition: theme.transitions.create(['width', 'margin'], {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.enteringScreen,
+    }),
+  },
+  menuButton: {
+    marginRight: 36,
+  },
+  menuButtonHidden: {
+    display: 'none',
+  },
+  title: {
+    flexGrow: 1,
+    fontSize: '4vw'
+  },
+  drawerPaper: {
+    backgroundColor: '#415160',
+    position: 'relative',
+    whiteSpace: 'nowrap',
+    width: drawerWidth,
+    transition: theme.transitions.create('width', {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.enteringScreen,
+    }),
+  },
+  drawerPaperClose: {
+    overflowX: 'hidden',
+    transition: theme.transitions.create('width', {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.leavingScreen,
+    }),
+    width: theme.spacing(7),
+    [theme.breakpoints.up('sm')]: {
+      width: theme.spacing(9),
+    },
+  },
+  appBarSpacer: theme.mixins.toolbar,
+  content: {
+    flexGrow: 1,
+    height: '100vh',
+    overflow: 'auto',
+    backgroundColor: '#e3e6e2' },
+  container: {
+    marginTop: '6vw',
+    paddingTop: theme.spacing(4),
+    paddingBottom: theme.spacing(4),
+  },
+  paper: {
+    padding: theme.spacing(2),
+    display: 'flex',
+    overflow: 'auto',
+    flexDirection: 'column',
+  },
+  fixedHeight: {
+    height: 300,
+  },
+  button: {
+    margin: theme.spacing(1),
+  },
+  logo: {
+    maxWidth: '5vw',
+    maxHeight: '5vw',
+    borderRadius: '25%'
+  },
+  input: {
+    display: 'none',
+  },
+  fontSize: {
+    fontSize: '2vw',
+  },
+  graphSectionTitle: {
+    fontSize: '2'
+  }
 }));
-
+const drawerWidth = 0;
 const tiers = [
   {
     title: 'Favorite 1',
@@ -90,7 +194,7 @@ const tiers = [
     ],
     buttonText: 'Edit',
     buttonVariant: 'outlined',
-  },
+  }
 ];
 
 export default function Favorites() {
@@ -100,11 +204,23 @@ export default function Favorites() {
       <div>
     <React.Fragment>
       <CssBaseline />
-      <AppBar position="static" color="default" elevation={0} className={classes.appBar}>
+      <AppBar position="absolute" className={clsx(classes.appBar, classes.appBarShift)}>
         <Toolbar className={classes.toolbar}>
-          <Typography variant="h6" color="inherit" noWrap className={classes.toolbarTitle}>
-            <Link to="/dashboard">tradED</Link>
+          <IconButton
+            edge="start"
+            color="inherit"
+            aria-label="open drawer"
+
+            className={clsx(classes.menuButton, classes.menuButtonHidden)}
+          >
+            <MenuIcon />
+          </IconButton>
+          <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
+            tradED
           </Typography>
+          <IconButton color="inherit">
+          <img className={classes.logo} src={logo} alt="logo" />
+          </IconButton>
         </Toolbar>
       </AppBar>
       {/* Hero unit */}
@@ -144,7 +260,9 @@ export default function Favorites() {
                 </CardContent>
                 <CardActions>
                   <Button fullWidth variant={tier.buttonVariant} color="primary">
+                    <Link to="/search">
                     {tier.buttonText}
+                    </Link>
                   </Button>
                 </CardActions>
               </Card>
@@ -160,6 +278,7 @@ export default function Favorites() {
         </Box>
       </Container>
       {/* End footer */}
+      <Link to="/dashboard">Home</Link>
     </React.Fragment>
     </div>
   );

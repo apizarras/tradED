@@ -24,9 +24,10 @@ import ApexChart from "../Apexcharts/Apexcharts";
 import Card from "../companyCard/card"
 import GridList from '@material-ui/core/GridList';
 import { GridListTile } from '@material-ui/core';
-import logo from "../../assets/img/stock-chart-logoSM.jpg";
+import logo from "../../assets/img/tradEDlogo.png";
 import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
+import { grey } from '@material-ui/core/colors';
 
 
 
@@ -38,6 +39,7 @@ const useStyles = makeStyles(theme => ({
   },
   toolbar: {
     paddingRight: 24, // keep right padding when drawer closed
+    backgroundColor: '#AF473C'
   },
   toolbarIcon: {
     display: 'flex',
@@ -69,8 +71,10 @@ const useStyles = makeStyles(theme => ({
   },
   title: {
     flexGrow: 1,
+    fontSize: '4vw'
   },
   drawerPaper: {
+    backgroundColor: '#415160',
     position: 'relative',
     whiteSpace: 'nowrap',
     width: drawerWidth,
@@ -95,8 +99,9 @@ const useStyles = makeStyles(theme => ({
     flexGrow: 1,
     height: '100vh',
     overflow: 'auto',
-  },
+    backgroundColor: '#e3e6e2' },
   container: {
+    marginTop: '6vw',
     paddingTop: theme.spacing(4),
     paddingBottom: theme.spacing(4),
   },
@@ -112,8 +117,19 @@ const useStyles = makeStyles(theme => ({
   button: {
     margin: theme.spacing(1),
   },
+  logo: {
+    maxWidth: '5vw',
+    maxHeight: '5vw',
+    borderRadius: '25%'
+  },
   input: {
     display: 'none',
+  },
+  fontSize: {
+    fontSize: '2vw',
+  },
+  graphSectionTitle: {
+    fontSize: '2'
   }
 }));
 
@@ -146,10 +162,10 @@ export default function Dashboard() {
             <MenuIcon />
           </IconButton>
           <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
-            TradED
+            tradED
           </Typography>
           <IconButton color="inherit">
-          <img borderradius="25%" src={logo} alt="logo" />
+          <img className={classes.logo} src={logo} alt="logo" />
           </IconButton>
         </Toolbar>
       </AppBar>
@@ -173,9 +189,10 @@ export default function Dashboard() {
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>
+          <h2>My Graphs</h2>
           <Grid container spacing={3}>
             {/* ApexChart */}
-            <Grid item xs={12} md={4} lg={4}>
+            <Grid  item xs={12} md={4} lg={4}>
               <Paper className={fixedHeightPaper}>
                 <ApexChart Symbol="MSFT" />
                 {/* <Button variant="outlined" color="primary" className={classes.button}>
@@ -196,6 +213,7 @@ export default function Dashboard() {
             </Grid>
             {/* This is where the card div starts */}
             <Grid item  xs>
+              <h2>Suggestions</h2>
               {/* <Paper className={classes.paper}> */}
               <GridList  cols={4} xs={12} md={12} lg={12}>
               <GridListTile spacing={3} item xs={3} md={3} lg={3}>

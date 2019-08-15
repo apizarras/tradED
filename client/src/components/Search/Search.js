@@ -10,12 +10,23 @@ import Container from '@material-ui/core/Container';
 import PageviewIcon from '@material-ui/icons/Pageview';
 import { pink } from '@material-ui/core/colors';
 import Input from '@material-ui/core/Input';
+import AppBar from '@material-ui/core/AppBar';
+import clsx from 'clsx';
+import MenuIcon from '@material-ui/icons/Menu';
+import IconButton from '@material-ui/core/IconButton';
+import logo from "../../assets/img/tradEDlogo.png";
+import Toolbar from '@material-ui/core/Toolbar';
 
 const useStyles = makeStyles(theme => ({
   '@global': {
     body: {
       backgroundColor: theme.palette.common.white,
     },
+  },
+  logo: {
+    maxWidth: '5vw',
+    maxHeight: '5vw',
+    borderRadius: '25%'
   },
   paper: {
     marginTop: theme.spacing(8),
@@ -33,18 +44,49 @@ const useStyles = makeStyles(theme => ({
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
+    backgroundColor: '#AF473C'
   },
+  marginTop: {
+    marginTop: '10vw'
+  },
+    toolbar: {
+    paddingRight: 24, // keep right padding when drawer closed
+    backgroundColor: '#AF473C'
+  },
+  color: {
+    backgroundColor: '#415160'
+  }
 }));
 
 export default function Search({ q, handleInputChange, handleSearchFormSubmit }) {
   const classes = useStyles();
 
   return (
-    <Container component="main" maxWidth="xs">
+    <React.Fragment>
+      <AppBar position="absolute" className={clsx(classes.appBar, classes.appBarShift)}>
+        <Toolbar className={classes.toolbar}>
+          <IconButton
+            edge="start"
+            color="inherit"
+            aria-label="open drawer"
+            className={clsx(classes.menuButton, classes.menuButtonHidden)}
+          >
+            <MenuIcon to="/dashboard" />
+          </IconButton>
+          <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
+            tradED
+          </Typography>
+          {/* <IconButton color="inherit">
+          <img className={classes.logo} src={logo} alt="logo" />
+          </IconButton> */}
+        </Toolbar>
+      </AppBar>
+
+    <Container className={classes.marginTop} component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
-      <Avatar className={classes.pinkAvatar}>
-        <PageviewIcon />
+      <Avatar className={classes.color}>
+        <PageviewIcon className={classes.color} />
       </Avatar>
         <Typography component="h1" variant="h5">
           Search
@@ -68,7 +110,6 @@ export default function Search({ q, handleInputChange, handleSearchFormSubmit })
             type="submit"
             fullWidth
             variant="contained"
-            color="primary"
             className={classes.submit}
             onClick={handleSearchFormSubmit}
           >
@@ -85,5 +126,6 @@ export default function Search({ q, handleInputChange, handleSearchFormSubmit })
       <Box mt={8}>
       </Box>
     </Container>
+    </React.Fragment>
   );
 }
